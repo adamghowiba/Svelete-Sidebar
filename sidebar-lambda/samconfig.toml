@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sidebar-lambda"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1ba1wy21pyvlm"
+s3_prefix = "sidebar-lambda"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

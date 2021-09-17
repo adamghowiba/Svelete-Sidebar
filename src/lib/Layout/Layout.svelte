@@ -26,6 +26,19 @@
 
   <CardContainer>
     <Card>
+      <form action="" method="POST">
+        <label for="first">First Name</label>
+        <input type="text" name="first" />
+        
+        <label for="first">Last Name</label>
+        <input type="text" name="last" />
+        <input type="submit" />
+      </form>
+      </Card>
+  </CardContainer>
+
+  <CardContainer>
+    <Card>
       <BarChart />
     </Card>
     <Card width="50">
@@ -35,6 +48,29 @@
 </div>
 
 <style>
+  form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  input {
+    border-radius: 10px;
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: 0.6rem;
+    margin: 10px 0 35px 0;
+    background-color: snow;
+  }
+  input[type="submit"] {
+    background-color: #688EFF;
+    color: white;
+    font-weight: bold;
+    padding: 13px 0;
+    max-width: 50%;
+    margin-top: -10px;
+  }
   .layout {
     width: 100%;
     height: 100%;
