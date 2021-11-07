@@ -1,13 +1,12 @@
-<a href="/"><slot /></a>
+<script>
+  export let maxSize = 200;
+</script>
+
+<a href="/" style="max-width: {maxSize}px;"><slot /></a>
 
 <style>
   a {
     display: block;
-    /* position: absolute;
-    right: 0;
-    top: 50%; */
-    /* transform: translateY(-50%); */
-
     color: white;
     background-color: #688eff;
     padding: 0.7rem 1.5rem;

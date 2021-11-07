@@ -6,6 +6,8 @@
   import DataExample from "./Cards/DataExample.svelte";
   import BarChart from "./Cards/BarChart.svelte";
   import PieChart from "./Cards/PieChart.svelte";
+
+  import {Link} from 'svelte-routing';
 </script>
 
 <div class="layout">

@@ -6,19 +6,28 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "smui-theme compile build/smui.css -i src/theme"
   },
   "devDependencies": {
+    "@smui/button": "^5.0.0-beta.7",
+    "@smui/data-table": "^5.0.0-beta.7",
+    "@smui/icon-button": "^5.0.0-beta.7",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
     "@tsconfig/svelte": "^2.0.1",
+    "smui-theme": "^5.0.0-beta.7",
     "svelte": "^3.37.0",
     "svelte-check": "^2.1.0",
-    "svelte-preprocess": "^4.7.2",
+    "svelte-preprocess": "^4.9.5",
     "tslib": "^2.2.0",
     "typescript": "^4.3.2",
     "vite": "^2.5.4"
   },
   "dependencies": {
-    "chart.js": "^3.5.1"
+    "chart.js": "^3.5.1",
+    "faker": "^5.5.3",
+    "sass": "^1.42.1",
+    "svelte-material-ui": "^5.0.0-beta.7",
+    "svelte-routing": "^1.6.0"
   }
 }

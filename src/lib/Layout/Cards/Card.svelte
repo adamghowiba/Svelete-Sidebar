@@ -2,7 +2,7 @@
   export let width = 'auto';
 </script>
 
-<div class="card" style="width: {width}%">
+<div class="card" style="width: {width}">
   <div class="card__body">
     <slot />
   </div>

@@ -1,5 +1,5 @@
 <script>
-  import Button from "../Button.svelte";
+  import Button from "../Global/Button.svelte";
 
   export let name;
 </script>

@@ -1,34 +1,30 @@
 <script lang="ts">
   import { onMount } from "svelte";
   export let src = "/icon/data-sheet.svg";
+  import { sidebarCollapsed } from "../../stores";
   export let title = "List";
 
   let expand = false;
   let height: string;
   let elementHeight: number;
+  let expandItems: HTMLElement;
 
   onMount(() => {
     //Set the expanded cards to default to being unfolded.
-    const wrapper = document.querySelectorAll(".expand__items");
-    
-    wrapper.forEach((elem: HTMLElement) => {
-      elem.style.height = "0px";
-    })
-
+    expandItems.style.height = '0px';
   });
 
   function expandDropdown(event: Event) {
     const target = event.currentTarget as HTMLElement;
-    const wrapper = target.querySelector(".expand__items") as HTMLElement;
-    
+
     if (expand) {
-      wrapper.style.height = `0px`;
+      expandItems.style.height = `0px`;
       expand = false;
       return;
     }
 
     expand = true;
-    wrapper.style.height = `${wrapper.scrollHeight}px`;
+    expandItems.style.height = `${expandItems.scrollHeight}px`;
   }
 </script>
 
@@ -36,12 +32,14 @@
   <div class="expand" on:click={expandDropdown}>
     <div class="mask">
       <img {src} alt="Item icon" />
-      <span>{title}</span>
+      {#if !$sidebarCollapsed.collapsed}
+        <span>{title}</span>
+      {/if}
 
       <img class="down-arrow" src="/icon/down.svg" alt="Item icon" />
     </div>
 
-    <div class="expand__items">
+    <div class="expand__items" bind:this={expandItems}>
       <slot />
     </div>
   </div>
@@ -65,7 +63,6 @@
     display: flex;
     justify-content: start;
     flex-direction: row;
-    gap: 1rem;
     /* align-items: center; */
     width: 100%;
     min-height: 0;
@@ -73,11 +70,15 @@
     cursor: pointer;
   }
   .expand__items {
-    padding-left: 50px;
     display: flex;
+    padding-left: 50px;
     flex-direction: column;
     overflow: hidden;
     transition: height 0.25s ease;
+  }
+  .collapsed-items {
+    padding-left: 0px;
+    align-items: center;
   }
 
   .mask:hover {
@@ -85,6 +86,7 @@
   }
   img {
     max-width: 19px;
+    margin-right: 1rem;
   }
   .down-arrow {
     margin-left: auto;
